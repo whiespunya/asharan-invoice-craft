@@ -1,12 +1,11 @@
-
 import html2pdf from 'html2pdf.js';
 import { InvoiceData, InvoiceItem, Plans } from '../types/invoice';
 import { toast } from '@/components/ui/use-toast';
 
 export const PLANS: Plans = {
   Basic: { price: 500000, desc: "Landing page, katalog online sederhana" },
-  Standard: { price: 1000000, desc: "Website profil + galeri/layanan" },
-  Premium: { price: 2000000, desc: "Website lengkap + fitur kontak & form lead" },
+  "Standard Business": { price: 1200000, desc: "Website profil + galeri/layanan" },
+  Premium: { price: 2500000, desc: "Website lengkap + fitur kontak & form lead" },
 };
 
 export function formatCurrency(amount: number): string {

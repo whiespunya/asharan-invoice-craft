@@ -53,11 +53,16 @@ const InvoicePreview = ({ data }: InvoicePreviewProps) => {
                 <p><span className="font-medium">Atas Nama:</span> <span className="font-bold italic">Muhammad Ilham Alprasy</span></p>
                 <p><span className="font-medium">Ref:</span> Ilham</p>
               </div>
+              
+              <div className="mt-3 p-2 bg-amber-50 border border-amber-200 rounded-md text-amber-800">
+                <p className="font-medium">PERINGATAN:</p>
+                <p>Pembayaran hanya dilakukan ke rekening yang tercantum di atas. Segala bentuk permintaan transfer ke rekening lain atau atas nama pribadi adalah penipuan dan sepenuhnya di luar tanggung jawab kami.</p>
+              </div>
             </div>
           </div>
           
           <div>
-            <h4 className="font-bold">CATATAN TAMBAHAN / KETENTUAN LAYANAN:</h4>
+            <h4 className="font-bold">KETENTUAN LAYANAN:</h4>
             <div className="mt-2 text-sm space-y-2">
               <p>1. Maksimal revisi adalah 2x. Revisi tambahan akan dikenakan biaya sesuai tingkat kompleksitas perubahan.</p>
               <p>2. Harap mengisi form dengan data yang jelas dan lengkap agar proses pengerjaan berjalan lancar dan sesuai harapan.</p>
