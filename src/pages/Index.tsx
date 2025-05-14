@@ -5,6 +5,9 @@ import InvoicePreview from '@/components/InvoicePreview';
 import { InvoiceData } from '@/types/invoice';
 import { Toaster } from '@/components/ui/toaster';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import { generatePDF } from '@/utils/invoiceUtils';
+import { Download } from 'lucide-react';
 
 const Index = () => {
   const [invoiceData, setInvoiceData] = useState<InvoiceData | null>(null);
@@ -13,6 +16,12 @@ const Index = () => {
   const handleGenerateInvoice = (data: InvoiceData) => {
     setInvoiceData(data);
     setActiveTab("preview");
+  };
+
+  const handleDownloadPDF = () => {
+    if (invoiceData) {
+      generatePDF(invoiceData);
+    }
   };
 
   return (
@@ -34,7 +43,17 @@ const Index = () => {
           </TabsContent>
           
           <TabsContent value="preview" className="space-y-4">
-            {invoiceData && <InvoicePreview data={invoiceData} />}
+            {invoiceData && (
+              <>
+                <div className="flex justify-end mb-4">
+                  <Button onClick={handleDownloadPDF} className="flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Download PDF
+                  </Button>
+                </div>
+                <InvoicePreview data={invoiceData} />
+              </>
+            )}
           </TabsContent>
         </Tabs>
       </div>

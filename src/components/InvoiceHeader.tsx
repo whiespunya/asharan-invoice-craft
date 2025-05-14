@@ -13,10 +13,9 @@ const InvoiceHeader = ({ className, preview = false }: InvoiceHeaderProps) => {
       <div>
         <h3 className="text-xl md:text-2xl font-bold text-primary">ASHARAN DIGITAL SOLUTION INDONESIA</h3>
         <p className="text-sm text-muted-foreground mt-2">
-          Jl. Contoh No.123<br />
-          Indonesia<br />
-          admin@asharan.co.id<br />
-          08123456789
+          Jalan Sisingamangaraja, Gang Karyawan<br />
+          Bandar Lampung, Lampung 35151<br />
+          admin@asharan.id<br />
         </p>
       </div>
       

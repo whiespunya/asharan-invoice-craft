@@ -39,22 +39,41 @@ const InvoicePreview = ({ data }: InvoicePreviewProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h4 className="font-bold">PAY BY BANK TRANSFER</h4>
-            <div className="mt-2 space-y-1 text-sm">
-              <p><span className="font-medium">Bank:</span> BCA</p>
-              <p><span className="font-medium">No. Rek:</span> 1234567890</p>
-              <p><span className="font-medium">Atas Nama:</span> ASHARAN DIGITAL SOLUTION</p>
-              <p><span className="font-medium">Ref:</span> {data.clientName}</p>
+            <div className="mt-2 space-y-3 text-sm">
+              <div>
+                <p><span className="font-medium">Bank:</span> BRI</p>
+                <p><span className="font-medium">No. Rek:</span> <span className="font-bold italic">339801041234531</span></p>
+                <p><span className="font-medium">Atas Nama:</span> <span className="font-bold italic">REY RIFA ERLANGGA</span></p>
+                <p><span className="font-medium">Ref:</span> Rey</p>
+              </div>
+              
+              <div className="mt-3">
+                <p><span className="font-medium">Bank:</span> BRI</p>
+                <p><span className="font-medium">No. Rek:</span> <span className="font-bold italic">579801023895503</span></p>
+                <p><span className="font-medium">Atas Nama:</span> <span className="font-bold italic">Muhammad Ilham Alprasy</span></p>
+                <p><span className="font-medium">Ref:</span> Ilham</p>
+              </div>
             </div>
           </div>
           
           <div>
-            <h4 className="font-bold">TERMS</h4>
-            <p className="mt-2 text-sm">Pembayaran dalam 14 hari. Hubungi kami untuk garansi atau kebijakan pengembalian.</p>
+            <h4 className="font-bold">CATATAN TAMBAHAN / KETENTUAN LAYANAN:</h4>
+            <div className="mt-2 text-sm space-y-2">
+              <p>1. Maksimal revisi adalah 2x. Revisi tambahan akan dikenakan biaya sesuai tingkat kompleksitas perubahan.</p>
+              <p>2. Harap mengisi form dengan data yang jelas dan lengkap agar proses pengerjaan berjalan lancar dan sesuai harapan.</p>
+              <p>3. Estimasi waktu pengerjaan akan dimulai setelah form diisi lengkap dan pembayaran DP (Down Payment) diterima.</p>
+              <p>4. DP minimum 50% dari total biaya proyek wajib dibayarkan di awal sebagai tanda jadi.</p>
+              <p>5. Sisa pembayaran dilakukan sebelum file final diserahkan atau website dipublikasikan.</p>
+              <p>6. Garansi teknis berlaku selama 7 hari setelah proyek selesai untuk perbaikan bug atau kesalahan sistem (tidak termasuk perubahan fitur/desain).</p>
+              <p>7. Klien wajib menyimpan backup data secara berkala setelah proyek diselesaikan.</p>
+              <p>8. Komunikasi dan revisi dilakukan melalui media yang telah disepakati (WhatsApp/email).</p>
+              <p>9. Dengan melakukan pembayaran, klien dianggap telah menyetujui seluruh ketentuan layanan ini.</p>
+            </div>
           </div>
         </div>
         
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>Terima kasih atas kerjasama Anda!</p>
+          <p>Pembayaran maksimal 1x24 jam. Hubungi kami untuk garansi atau kebijakan pengembalian.</p>
         </div>
       </CardContent>
     </Card>

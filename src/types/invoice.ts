@@ -17,6 +17,7 @@ export interface Plans {
 
 export interface InvoiceData {
   clientName: string;
+  phoneNumber?: string;
   invoiceId: string;
   issueDate: string;
   dueDate: string;

@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import InvoiceHeader from './InvoiceHeader';
-import { PLANS, generateInvoiceId, getCurrentDate, calculateDueDate, validateInvoiceForm, generatePDF } from '@/utils/invoiceUtils';
+import { PLANS, generateInvoiceId, getCurrentDate, calculateDueDate, validateInvoiceForm } from '@/utils/invoiceUtils';
 import { InvoiceData, InvoiceItem } from '@/types/invoice';
 import { toast } from '@/components/ui/use-toast';
 import { Separator } from "@/components/ui/separator";
@@ -18,6 +18,7 @@ interface InvoiceFormProps {
 
 const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
   const [clientName, setClientName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [selectedPlan, setSelectedPlan] = useState('');
   const [customItems, setCustomItems] = useState<InvoiceItem[]>([]);
   const [customItemName, setCustomItemName] = useState('');
@@ -68,6 +69,7 @@ const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
 
     const invoiceData: InvoiceData = {
       clientName,
+      phoneNumber,
       invoiceId: generateInvoiceId(),
       issueDate: getCurrentDate(),
       dueDate: calculateDueDate(),
@@ -76,7 +78,6 @@ const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
     };
 
     onGenerateInvoice(invoiceData);
-    generatePDF(invoiceData);
   };
 
   return (
@@ -96,6 +97,16 @@ const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
               placeholder="e.g. PT Maju Jaya" 
               value={clientName}
               onChange={(e) => setClientName(e.target.value)}
+            />
+          </div>
+          
+          <div className="grid gap-2">
+            <Label htmlFor="phoneNumber">Client Phone Number</Label>
+            <Input 
+              id="phoneNumber" 
+              placeholder="e.g. 081234567890" 
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           

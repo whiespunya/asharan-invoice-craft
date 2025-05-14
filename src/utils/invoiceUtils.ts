@@ -38,7 +38,7 @@ export function generatePDF(invoiceData: InvoiceData): void {
     return;
   }
 
-  const filename = `ADSINVOICE-${Date.now()}-${invoiceData.clientName.replace(/\s+/g, "_")}.pdf`;
+  const filename = `ADSINV-${Date.now()}-${invoiceData.clientName.replace(/\s+/g, "_")}.pdf`;
   const options = {
     margin: 10,
     filename: filename,
