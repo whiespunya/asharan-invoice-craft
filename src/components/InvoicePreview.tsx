@@ -55,8 +55,8 @@ const InvoicePreview = ({ data }: InvoicePreviewProps) => {
               </div>
               
               <div className="mt-3 p-2 bg-amber-50 border border-amber-200 rounded-md text-amber-800">
-                <p className="font-medium">PERINGATAN:</p>
-                <p>Pembayaran hanya dilakukan ke rekening yang tercantum di atas. Segala bentuk permintaan transfer ke rekening lain atau atas nama pribadi adalah penipuan dan sepenuhnya di luar tanggung jawab kami.</p>
+                <p className="font-bold">PERINGATAN:</p>
+                <p className="text-justify">Pembayaran hanya dilakukan ke rekening yang tercantum di atas. Segala bentuk permintaan transfer ke rekening lain atau atas nama pribadi adalah penipuan dan sepenuhnya di luar tanggung jawab kami.</p>
               </div>
             </div>
           </div>
