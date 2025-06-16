@@ -1,3 +1,4 @@
+
 import html2pdf from 'html2pdf.js';
 import { InvoiceData, InvoiceItem, Plans } from '../types/invoice';
 import { toast } from '@/components/ui/use-toast';
@@ -71,7 +72,7 @@ export function generatePDF(invoiceData: InvoiceData): void {
     });
 }
 
-export function validateInvoiceForm(clientName: string, planKey: string): boolean {
+export function validateInvoiceForm(clientName: string, planKey: string, customItems: InvoiceItem[]): boolean {
   if (!clientName.trim()) {
     toast({
       title: "Validation Error",
@@ -81,10 +82,10 @@ export function validateInvoiceForm(clientName: string, planKey: string): boolea
     return false;
   }
 
-  if (!planKey) {
+  if (!planKey && customItems.length === 0) {
     toast({
       title: "Validation Error",
-      description: "Please select a plan",
+      description: "Please select a plan or add at least one custom item",
       variant: "destructive",
     });
     return false;

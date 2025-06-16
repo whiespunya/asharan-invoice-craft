@@ -53,18 +53,26 @@ const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
   };
 
   const handleGenerateInvoice = () => {
-    if (!validateInvoiceForm(clientName, selectedPlan)) {
+    if (!validateInvoiceForm(clientName, selectedPlan, customItems)) {
       return;
     }
 
-    const planItem: InvoiceItem = {
-      name: `${selectedPlan} Plan - ${PLANS[selectedPlan].desc}`,
-      quantity: 1,
-      price: PLANS[selectedPlan].price,
-      total: PLANS[selectedPlan].price,
-    };
+    const allItems: InvoiceItem[] = [];
 
-    const allItems = [planItem, ...customItems];
+    // Add plan item only if a plan is selected
+    if (selectedPlan) {
+      const planItem: InvoiceItem = {
+        name: `${selectedPlan} Plan - ${PLANS[selectedPlan].desc}`,
+        quantity: 1,
+        price: PLANS[selectedPlan].price,
+        total: PLANS[selectedPlan].price,
+      };
+      allItems.push(planItem);
+    }
+
+    // Add custom items
+    allItems.push(...customItems);
+
     const subtotal = allItems.reduce((sum, item) => sum + item.total, 0);
 
     const invoiceData: InvoiceData = {
@@ -111,10 +119,10 @@ const InvoiceForm = ({ onGenerateInvoice }: InvoiceFormProps) => {
           </div>
           
           <div className="grid gap-2">
-            <Label htmlFor="plan">Select Plan</Label>
+            <Label htmlFor="plan">Select Plan (Optional)</Label>
             <Select value={selectedPlan} onValueChange={setSelectedPlan}>
               <SelectTrigger id="plan">
-                <SelectValue placeholder="-- Pilih Paket --" />
+                <SelectValue placeholder="-- Pilih Paket (Opsional) --" />
               </SelectTrigger>
               <SelectContent>
                 {Object.entries(PLANS).map(([key, plan]) => (
